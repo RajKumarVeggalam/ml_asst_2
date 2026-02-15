@@ -22,8 +22,14 @@ Predicting the likelihood of heart disease in patients based on 11 clinical feat
 
 
 
-## 4. Observations
-- **Best Model:** Random Forest achieved the highest Accuracy and MCC.
-- **Robustness:** Logistic Regression and Naive Bayes provided very similar and stable results.
-- **Ensemble Power:** Boosting (XGBoost) and Bagging (Random Forest) clearly outperformed single-tree models.
+## 4. Model Performance Observations
+
+| ML Model Name | Observation about model performance |
+|:--- |:--- |
+| **Logistic Regression** | Provided a strong baseline with ~84.8% accuracy. Its high AUC indicates it is very effective at distinguishing between healthy and diseased patients in this linear feature space. |
+| **Decision Tree** | Showed the lowest performance (~80.4%). This is likely due to the model's tendency to overfit the training data, leading to slightly lower generalization on the test set. |
+| **kNN** | Performed exactly as well as Logistic Regression. The use of Feature Scaling (StandardScaler) was crucial here to ensure distance-based calculations were accurate. |
+| **Naive Bayes** | Highly efficient and performed remarkably well (~84.2%) for a simple probabilistic model, suggesting that the clinical features have independent predictive value. |
+| **Random Forest (Ensemble)** | **Top Performer (~88.6% Accuracy).** The bagging technique effectively reduced variance and handled non-linear relationships in the heart data better than any other model. |
+| **XGBoost (Ensemble)** | Second-best performer (~87.0%). It demonstrated the power of gradient boosting, though on this specific dataset size, it was slightly outperformed by the Random Forest's robustness. |
 
